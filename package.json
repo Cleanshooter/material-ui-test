@@ -1,6 +1,6 @@
 {
-  "name": "material-ui",
-  "author": "Material-UI Team",
+  "name": "material-ui-moto",
+  "author": "Material-UI Team & Moto",
   "version": "0.18.1",
   "description": "React Components that Implement Google's Material Design.",
   "main": "./index.js",

@@ -30,8 +30,6 @@ class Analyses extends Component {
     };
   }
 
-  toggleDrawer = () => { this.setState({drawerIsOpen: !this.state.drawerIsOpen}); };
-
   render() {
 
     const rowSelected = (selection) => {
