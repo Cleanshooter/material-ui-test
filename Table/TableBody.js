@@ -420,12 +420,13 @@ var TableBody = function (_Component) {
           onRowHoverExit = _props.onRowHoverExit,
           onRowSelection = _props.onRowSelection,
           selectable = _props.selectable,
+          setSelectedRows = _props.setSelectedRows,
           deselectOnClickaway = _props.deselectOnClickaway,
           showRowHover = _props.showRowHover,
           stripedRows = _props.stripedRows,
           displayRowCheckbox = _props.displayRowCheckbox,
           preScanRows = _props.preScanRows,
-          other = (0, _objectWithoutProperties3.default)(_props, ['style', 'allRowsSelected', 'multiSelectable', 'onCellClick', 'onCellHover', 'onCellHoverExit', 'onRowHover', 'onRowHoverExit', 'onRowSelection', 'selectable', 'deselectOnClickaway', 'showRowHover', 'stripedRows', 'displayRowCheckbox', 'preScanRows']);
+          other = (0, _objectWithoutProperties3.default)(_props, ['style', 'allRowsSelected', 'multiSelectable', 'onCellClick', 'onCellHover', 'onCellHoverExit', 'onRowHover', 'onRowHoverExit', 'onRowSelection', 'selectable', 'setSelectedRows', 'deselectOnClickaway', 'showRowHover', 'stripedRows', 'displayRowCheckbox', 'preScanRows']);
       var prepareStyles = this.context.muiTheme.prepareStyles;
 
 
