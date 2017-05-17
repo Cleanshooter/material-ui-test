@@ -40,9 +40,13 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactAddonsTransitionGroup = require('react-addons-transition-group');
+var _propTypes = require('prop-types');
 
-var _reactAddonsTransitionGroup2 = _interopRequireDefault(_reactAddonsTransitionGroup);
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _TransitionGroup = require('react-transition-group/TransitionGroup');
+
+var _TransitionGroup2 = _interopRequireDefault(_TransitionGroup);
 
 var _ExpandTransitionChild = require('./ExpandTransitionChild');
 
@@ -103,7 +107,7 @@ var ExpandTransition = function (_Component) {
       var newChildren = loading ? [] : this.renderChildren(children);
 
       return _react2.default.createElement(
-        _reactAddonsTransitionGroup2.default,
+        _TransitionGroup2.default,
         (0, _extends3.default)({
           style: prepareStyles(mergedRootStyles),
           component: 'div'
@@ -123,15 +127,15 @@ ExpandTransition.defaultProps = {
   open: false
 };
 ExpandTransition.contextTypes = {
-  muiTheme: _react.PropTypes.object.isRequired
+  muiTheme: _propTypes2.default.object.isRequired
 };
 process.env.NODE_ENV !== "production" ? ExpandTransition.propTypes = {
-  children: _react.PropTypes.node,
-  enterDelay: _react.PropTypes.number,
-  loading: _react.PropTypes.bool,
-  open: _react.PropTypes.bool,
-  style: _react.PropTypes.object,
-  transitionDelay: _react.PropTypes.number,
-  transitionDuration: _react.PropTypes.number
+  children: _propTypes2.default.node,
+  enterDelay: _propTypes2.default.number,
+  loading: _propTypes2.default.bool,
+  open: _propTypes2.default.bool,
+  style: _propTypes2.default.object,
+  transitionDelay: _propTypes2.default.number,
+  transitionDuration: _propTypes2.default.number
 } : void 0;
 exports.default = ExpandTransition;

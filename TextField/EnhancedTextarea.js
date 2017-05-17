@@ -40,6 +40,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _reactEventListener = require('react-event-listener');
 
 var _reactEventListener2 = _interopRequireDefault(_reactEventListener);
@@ -68,7 +72,7 @@ function getStyles(props, context, state) {
       // Visibility needed to hide the extra text area on ipads
       visibility: 'hidden',
       position: 'absolute',
-      height: 'initial'
+      height: 'auto'
     }
   };
 }
@@ -223,23 +227,23 @@ EnhancedTextarea.defaultProps = {
   rows: 1
 };
 EnhancedTextarea.contextTypes = {
-  muiTheme: _react.PropTypes.object.isRequired
+  muiTheme: _propTypes2.default.object.isRequired
 };
 process.env.NODE_ENV !== "production" ? EnhancedTextarea.propTypes = {
-  defaultValue: _react.PropTypes.any,
-  disabled: _react.PropTypes.bool,
-  hintText: _react.PropTypes.string,
-  onChange: _react.PropTypes.func,
-  onHeightChange: _react.PropTypes.func,
-  rows: _react.PropTypes.number,
-  rowsMax: _react.PropTypes.number,
-  shadowStyle: _react.PropTypes.object,
+  defaultValue: _propTypes2.default.any,
+  disabled: _propTypes2.default.bool,
+  hintText: _propTypes2.default.node,
+  onChange: _propTypes2.default.func,
+  onHeightChange: _propTypes2.default.func,
+  rows: _propTypes2.default.number,
+  rowsMax: _propTypes2.default.number,
+  shadowStyle: _propTypes2.default.object,
   /**
    * Override the inline-styles of the root element.
    */
-  style: _react.PropTypes.object,
-  textareaStyle: _react.PropTypes.object,
-  value: _react.PropTypes.string,
-  valueLink: _react.PropTypes.object
+  style: _propTypes2.default.object,
+  textareaStyle: _propTypes2.default.object,
+  value: _propTypes2.default.string,
+  valueLink: _propTypes2.default.object
 } : void 0;
 exports.default = EnhancedTextarea;

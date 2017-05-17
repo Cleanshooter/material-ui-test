@@ -10,9 +10,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactAddonsCreateFragment = require('react-addons-create-fragment');
+var _ReactFragment = require('../ReactFragment/ReactFragment');
 
-var _reactAddonsCreateFragment2 = _interopRequireDefault(_reactAddonsCreateFragment);
+var _ReactFragment2 = _interopRequireDefault(_ReactFragment);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34,7 +34,7 @@ function createChildFragment(fragments) {
 
   if (validChildrenCount === 0) return undefined;
   if (validChildrenCount === 1) return newFragments[firstKey];
-  return (0, _reactAddonsCreateFragment2.default)(newFragments);
+  return (0, _ReactFragment2.default)(newFragments);
 }
 
 function extendChildren(children, extendedProps, extendedChildren) {

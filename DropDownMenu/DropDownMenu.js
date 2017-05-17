@@ -40,6 +40,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
@@ -80,9 +84,9 @@ var _IconButton = require('../IconButton');
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
-var _propTypes = require('../utils/propTypes');
+var _propTypes3 = require('../utils/propTypes');
 
-var _propTypes2 = _interopRequireDefault(_propTypes);
+var _propTypes4 = _interopRequireDefault(_propTypes3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -344,7 +348,7 @@ var DropDownMenu = function (_Component) {
       } else {
         var values = [];
         _react2.default.Children.forEach(children, function (child) {
-          if (child && value && value.includes(child.props.value)) {
+          if (child && value && value.indexOf(child.props.value) > -1) {
             if (selectionRenderer) {
               values.push(child.props.value);
             } else {
@@ -426,7 +430,9 @@ var DropDownMenu = function (_Component) {
               onItemTouchTap: this.handleItemTouchTap,
               onChange: this.handleChange,
               menuItemStyle: menuItemStyle,
-              selectedMenuItemStyle: selectedMenuItemStyle
+              selectedMenuItemStyle: selectedMenuItemStyle,
+              autoWidth: autoWidth,
+              width: !autoWidth && menuStyle ? menuStyle.width : null
             },
             children
           )
@@ -447,12 +453,12 @@ DropDownMenu.defaultProps = {
   maxHeight: 500,
   multiple: false,
   anchorOrigin: {
-    vertical: 'bottom',
+    vertical: 'top',
     horizontal: 'left'
   }
 };
 DropDownMenu.contextTypes = {
-  muiTheme: _react.PropTypes.object.isRequired
+  muiTheme: _propTypes2.default.object.isRequired
 };
 process.env.NODE_ENV !== "production" ? DropDownMenu.propTypes = {
   /**
@@ -462,68 +468,68 @@ process.env.NODE_ENV !== "production" ? DropDownMenu.propTypes = {
    * vertical: [top, center, bottom]
    * horizontal: [left, middle, right].
    */
-  anchorOrigin: _propTypes2.default.origin,
+  anchorOrigin: _propTypes4.default.origin,
   /**
    * If true, the popover will apply transitions when
    * it gets added to the DOM.
    */
-  animated: _react.PropTypes.bool,
+  animated: _propTypes2.default.bool,
   /**
    * Override the default animation component used.
    */
-  animation: _react.PropTypes.func,
+  animation: _propTypes2.default.func,
   /**
    * The width will automatically be set according to the items inside the menu.
    * To control this width in css instead, set this prop to `false`.
    */
-  autoWidth: _react.PropTypes.bool,
+  autoWidth: _propTypes2.default.bool,
   /**
    * The `MenuItem`s to populate the `Menu` with. If the `MenuItems` have the
    * prop `label` that value will be used to render the representation of that
    * item within the field.
    */
-  children: _react.PropTypes.node,
+  children: _propTypes2.default.node,
   /**
    * The css class name of the root element.
    */
-  className: _react.PropTypes.string,
+  className: _propTypes2.default.string,
   /**
    * Disables the menu.
    */
-  disabled: _react.PropTypes.bool,
+  disabled: _propTypes2.default.bool,
   /**
    * Overrides default `SvgIcon` dropdown arrow component.
    */
-  iconButton: _react.PropTypes.node,
+  iconButton: _propTypes2.default.node,
   /**
    * Overrides the styles of icon element.
    */
-  iconStyle: _react.PropTypes.object,
+  iconStyle: _propTypes2.default.object,
   /**
    * Overrides the styles of label when the `DropDownMenu` is inactive.
    */
-  labelStyle: _react.PropTypes.object,
+  labelStyle: _propTypes2.default.object,
   /**
    * The style object to use to override underlying list style.
    */
-  listStyle: _react.PropTypes.object,
+  listStyle: _propTypes2.default.object,
   /**
    * The maximum height of the `Menu` when it is displayed.
    */
-  maxHeight: _react.PropTypes.number,
+  maxHeight: _propTypes2.default.number,
   /**
    * Override the inline-styles of menu items.
    */
-  menuItemStyle: _react.PropTypes.object,
+  menuItemStyle: _propTypes2.default.object,
   /**
    * Overrides the styles of `Menu` when the `DropDownMenu` is displayed.
    */
-  menuStyle: _react.PropTypes.object,
+  menuStyle: _propTypes2.default.object,
   /**
    * If true, `value` must be an array and the menu will support
    * multiple selections.
    */
-  multiple: _react.PropTypes.bool,
+  multiple: _propTypes2.default.bool,
   /**
    * Callback function fired when a menu item is clicked, other than the one currently selected.
    *
@@ -534,19 +540,19 @@ process.env.NODE_ENV !== "production" ? DropDownMenu.propTypes = {
    * it wasn't already selected) or omitted (if it was already selected).
    * Otherwise, the `value` of the menu item.
    */
-  onChange: _react.PropTypes.func,
+  onChange: _propTypes2.default.func,
   /**
    * Callback function fired when the menu is closed.
    */
-  onClose: _react.PropTypes.func,
+  onClose: _propTypes2.default.func,
   /**
    * Set to true to have the `DropDownMenu` automatically open on mount.
    */
-  openImmediately: _react.PropTypes.bool,
+  openImmediately: _propTypes2.default.bool,
   /**
    * Override the inline-styles of selected menu items.
    */
-  selectedMenuItemStyle: _react.PropTypes.object,
+  selectedMenuItemStyle: _propTypes2.default.object,
   /**
    * Callback function fired when a menu item is clicked, other than the one currently selected.
    *
@@ -555,11 +561,11 @@ process.env.NODE_ENV !== "production" ? DropDownMenu.propTypes = {
    * it wasn't already selected) or omitted (if it was already selected).
    * Otherwise, the `value` of the menu item.
    */
-  selectionRenderer: _react.PropTypes.func,
+  selectionRenderer: _propTypes2.default.func,
   /**
    * Override the inline-styles of the root element.
    */
-  style: _react.PropTypes.object,
+  style: _propTypes2.default.object,
   /**
    * This is the point on the popover which will attach to
    * the anchor's origin.
@@ -567,16 +573,16 @@ process.env.NODE_ENV !== "production" ? DropDownMenu.propTypes = {
    * vertical: [top, center, bottom]
    * horizontal: [left, middle, right].
    */
-  targetOrigin: _propTypes2.default.origin,
+  targetOrigin: _propTypes4.default.origin,
   /**
    * Overrides the inline-styles of the underline.
    */
-  underlineStyle: _react.PropTypes.object,
+  underlineStyle: _propTypes2.default.object,
   /**
    * If `multiple` is true, an array of the `value`s of the selected
    * menu items. Otherwise, the `value` of the selected menu item.
    * If provided, the menu will be a controlled component.
    */
-  value: _react.PropTypes.any
+  value: _propTypes2.default.any
 } : void 0;
 exports.default = DropDownMenu;
